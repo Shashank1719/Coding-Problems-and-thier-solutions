@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin >> t;
+	while(t--){
+	    int n;
+	    cin >> n;
+	    int arr[n], result[n];
+	   // for loop for inserting element in array
+	    for (int i = 0; i < n; i++) {
+	        cin >> arr[i];
+	    }
+	   // initiating flag element to -1 so prevent first element from skipping
+	   // flag made due to find repeating value so we can skip that iteration in loop.
+	    int flag=-1;
+	    for (int i = 0; i < n; i++) {
+	       // checking flag value to skip loop
+	        if(i == flag){
+	            continue;
+	        }
+	       // due to output
+	        if(i==n-1){
+	            result[i] = i;
+	        }
+	       // Assigning index value in new array
+	        else{
+	            result[i] = i+1;
+	        }
+	        for (int j = i+1; j < n; j++) {
+	           // checking if element is repeating or not
+	            if(arr[j] == arr[i]){
+	                flag = j;
+	                result[j] = -1;
+	            }
+	        }
+	    }
+	   // printing element as output from final array.
+	    for (int i = 0; i < n; i++) {
+	        cout << result[i] << " ";
+	    }
+	    cout << endl;
+	}
+	return 0;
+}
