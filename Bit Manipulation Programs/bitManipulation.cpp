@@ -12,7 +12,7 @@ int clearBit(int n, int pos){
     return (n & ~(1<<pos));
 }
 int updateBit(int n, int pos, int value){
-    if(value != 0 || value != 1){
+    if(value != 0 && value != 1){
         return -1;
     }
     n = clearBit(n, pos);
@@ -23,7 +23,7 @@ int updateBit(int n, int pos, int value){
 int main()
 {
     int num, position, choice, value;
-    cout << "Enter Number in Binary and position: " << endl;
+    cout << "Enter Number and position: " << endl;
     cin >> num >> position;
     cout << "Now Please Enter choice: " << endl;
     cin >> choice;
