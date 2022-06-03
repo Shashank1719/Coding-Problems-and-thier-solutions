@@ -7,6 +7,7 @@ int KadenAlgorithm(int *arr, int size){
     int curProduct=1, maxProduct=-1, minProduct=0;
     for (int i = 0; i < size; i++)
     {
+        // Code wriiten by me
         if(arr[i] == 0){
             curProduct = 1;
             if(maxProduct == -1) maxProduct = 0;
@@ -22,6 +23,23 @@ int KadenAlgorithm(int *arr, int size){
     }
     if(maxProduct >= 0) return maxProduct;
     else return minProduct;
+
+
+    // Code from YT
+
+    
+    int ans = arr[0];
+    int maxProduct = ans, minProduct = ans;
+    for (int i = 1; i < size; i++){
+        if(arr[i] < 0){
+            swap(maxProduct, minProduct);
+        }
+        maxProduct = max(arr[i], maxProduct*arr[i]);
+        minProduct = min(arr[i], minProduct*arr[i]);
+        ans = max(ans, maxProduct);
+
+    }
+    return ans;
 }
 
 int main()
