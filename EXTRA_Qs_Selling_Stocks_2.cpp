@@ -12,6 +12,7 @@ void maxProfit(int arr[], int n){
         }
     }
     cout << netProfit << endl;
+    cout << endl;
 }
 
 int main()
